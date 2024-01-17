@@ -9,5 +9,5 @@ Pet Cradle is an effort to create a haven where compassion meets companionship, 
 - Petfinder API
 
 ## Useful Links
-- [GitHub Repo](https://)
-- [Website Link](https://)
+- [GitHub Repo](https://github.com/Adm-2005/Pet-Cradle-Website)
+- [Website Link](https://petcradle.onrender.com)
