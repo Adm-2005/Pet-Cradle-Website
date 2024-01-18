@@ -3,6 +3,11 @@
 ## About this Project
 Pet Cradle is an effort to create a haven where compassion meets companionship, and every story begins with a friend.
 
+## Features
+- Responsive Modern Design.
+- Toggle between Light and Dark mode.
+- Channel Petfinder API's power.
+
 ## Tech Stack
 - React JS
 - Tailwind CSS
