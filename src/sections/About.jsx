@@ -1,6 +1,13 @@
-export default function About() {
+export default function About(props) {
   return (
-    <section id="about" className="px-16 max-sm:px-8">
+    <section
+      id="about"
+      className={
+        props.darkMode
+          ? "px-16 max-sm:px-8 bg-[#121212] text-white"
+          : "px-16 max-sm:px-8"
+      }
+    >
       <div className="flex flex-col">
         <div className="flex flex-col justify-start gap-5">
           <h2 className="max-sm:text-4xl text-6xl max-sm:mx-auto text-red-600 font-palanquin font-bold">

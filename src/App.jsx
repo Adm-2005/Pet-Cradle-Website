@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import Nav from "./components/Nav.jsx";
 import Hero from "./sections/Hero.jsx";
 import About from "./sections/About.jsx";
@@ -8,31 +9,37 @@ import Volunteer from "./sections/Volunteer.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  function toggleDarkMode() {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  }
+
   return (
-    <main className="relative">
-      <Nav />
+    <main className={darkMode ? "relative bg-[#121212]" : "relative"}>
+      <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       <section className="xl:padding-l wide:padding-r padding-b">
-        <Hero />
+        <Hero darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       </section>
 
       <section className="xl:padding-l wide:padding-r padding-b">
-        <About />
+        <About darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       </section>
 
       <section className="xl:padding-l wide:padding-r padding-b">
-        <Featured />
+        <Featured darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       </section>
 
       <section className="xl:padding-l wide:padding-r padding-b">
-        <FindPet />
+        <FindPet darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       </section>
 
       <section className="xl:padding-l wide:padding-r padding-b">
-        <Volunteer />
+        <Volunteer darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       </section>
 
-      <Footer />
+      <Footer darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
     </main>
   );
 }

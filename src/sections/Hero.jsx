@@ -1,11 +1,15 @@
 import { HiArrowCircleRight } from "react-icons/hi";
 import { statistics } from "../constants/index";
 
-export default function Hero() {
+export default function Hero(props) {
   return (
     <section
       id="hero"
-      className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10"
+      className={
+        props.darkMode
+          ? "w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 bg-[#121212] text-white"
+          : "w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10"
+      }
     >
       <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full px-16 max-sm:px-8 pt-28">
         <p className="text-xl font-montserrat text-red-600 ">
