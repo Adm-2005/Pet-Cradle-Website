@@ -1,14 +1,22 @@
+import { useState } from "react";
 import { TiThMenu } from "react-icons/ti";
+import { TiTimes } from "react-icons/ti";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { navLinks } from "../constants/index";
 
 export default function Nav(props) {
+  const [isOpen, setisOpen] = useState(false);
+
+  function toggleNavBar() {
+    setisOpen(!isOpen);
+  }
+
   return (
     <nav
       className={
         props.darkMode
-          ? "absolute z-10 w-full flex items-center flex-wrap bg-black shadow-xl"
-          : "absolute z-10 w-full flex items-center flex-wrap bg-grey-800 shadow-xl"
+          ? "sticky top-0 z-10 w-full flex items-center flex-wrap bg-black shadow-xl shadow-[#202020]"
+          : "sticky top-0 z-10 w-full flex items-center flex-wrap bg-white shadow-xl"
       }
     >
       <div className="flex justify-center items-center pl-2 mr-auto">
@@ -17,43 +25,7 @@ export default function Nav(props) {
           Pet Cradle
         </h1>
       </div>
-
       {/* nav-menu for large devices(breakpoint: min width 1024px */}
-      <ul className="hidden lg:flex  space-x-16 pr-4 ">
-        <div className="">
-          <BsFillMoonStarsFill
-            size="25px"
-            className="cursor-pointer"
-            color={props.darkMode ? "white" : "black"}
-            onClick={props.toggleDarkMode}
-          />
-        </div>
-        {navLinks.map((item) => (
-          <li key={item.label}>
-            <a
-              href={item.href}
-              className="text-lg text-red-600 font-semibold hover:text-black"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      {/* nav-menu for smaller devices */}
-      <ul className="max-lg:flex-col hidden bg-white ">
-        {navLinks.map((item) => (
-          <li key={item.label}>
-            <a
-              href={item.href}
-              className="text-lg text-red-600 font-semibold hover:text-black"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
       <div className="lg:hidden">
         <BsFillMoonStarsFill
           size="25px"
@@ -62,11 +34,43 @@ export default function Nav(props) {
           onClick={props.toggleDarkMode}
         />
       </div>
-
       {/* hamburger menu for devices smaller than 1024px */}
-      <div className="p-4 lg:hidden">
-        <TiThMenu size="30px" color="#dc2626" />
-      </div>
+      {isOpen ? (
+        <div className="p-4 lg:hidden">
+          <TiTimes size="30px" color="#dc2626" onClick={toggleNavBar} />
+        </div>
+      ) : (
+        <div className="p-4 lg:hidden">
+          <TiThMenu size="30px" color="#dc2626" onClick={toggleNavBar} />
+        </div>
+      )}
+
+      <ul
+        className={
+          isOpen
+            ? "flex flex-col lg:flex-row first: divide-y space-y-12 pl-2 pb-12 left-0  w-full "
+            : "hidden lg:flex space-x-16 pr-4 "
+        }
+      >
+        <div className="">
+          <BsFillMoonStarsFill
+            size="25px"
+            className="cursor-pointer hidden lg:block"
+            color={props.darkMode ? "white" : "black"}
+            onClick={props.toggleDarkMode}
+          />
+        </div>
+        {navLinks.map((item) => (
+          <li key={item.label}>
+            <a
+              href={item.href}
+              className="text-xl text-red-600 font-semibold hover:text-black"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }

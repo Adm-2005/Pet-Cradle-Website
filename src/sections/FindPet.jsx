@@ -21,7 +21,7 @@ export default function FindPet(props) {
         <form
           className={
             props.darkMode
-              ? "shadow-2xl rounded-xl  px-8 mx-auto  py-4 mb-4 w-fit bg-[#202020]"
+              ? "shadow-2xl rounded-xl  px-8  mx-auto  py-4 mb-4 w-fit bg-[#202020]"
               : " shadow-2xl rounded-xl  px-8 mx-auto  py-4 mb-4 bg-white border w-fit"
           }
         >
@@ -52,7 +52,7 @@ export default function FindPet(props) {
                   setAnimal(e.target.value);
                   setBreed("");
                 }}
-                className="shadow appearance-none border rounded w-72 mx-auto py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full max-sm:min-w-[50vw] min-w-72 overflow-hidden mx-auto py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option className="opacity-20 " value="" disabled selected>
                   --
@@ -71,7 +71,7 @@ export default function FindPet(props) {
                 onChange={(e) => {
                   setBreed(e.target.value);
                 }}
-                className="shadow appearance-none border rounded w-72 mx-auto py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full max-sm:min-w-[50vw] min-w-72 overflow-hidden mx-auto py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option className="opacity-20 " value="" disabled selected>
                   --

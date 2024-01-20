@@ -25,7 +25,7 @@ export default function Hero(props) {
           story of compassion and companionship today!
         </p>
         <a href="#find">
-          <button className="flex justify-center items-center font-montserrat font-semibold bg-red-600 text-white px-7 py-4 leading-none rounded-md hover:bg-black">
+          <button className="flex justify-center items-center font-montserrat font-semibold bg-red-600 text-white px-7 py-4 leading-none rounded-md hover:bg-red-800">
             Adopt
             <HiArrowCircleRight className="ml-2" size="20px" />
           </button>
